@@ -160,3 +160,81 @@ computer['storage'] = '1tb';
 computer.storage = '5tb';
 
 console.log(computer);
+
+// switch
+var color = 'yellow';
+/* 
+
+if (color == 'blue') {
+    console.log('color is blue');
+}
+else if (color == 'red') {
+    console.log('color is red');
+}
+else if (color == 'green') {
+    console.log('color is green')
+}
+else if (color == 'white') {
+    console.log('color is white');
+}
+else if (color == 'magenta') {
+    console.log('color is magenta');
+}
+else if (color == 'yellow') {
+    console.log('color is yellow');
+}
+else {
+    console.log('color is black');
+} */
+/* switch (color) {
+    case 'blue':
+        console.log('color is blue');
+        break;
+    case 'red':
+        console.log('color is red');
+        break;
+    case 'white':
+        console.log('color is white');
+        break;
+    case 'green':
+        console.log('color is green');
+        break;
+    case 'yellow':
+        console.log('color is yellow');
+        break;
+    default:
+        console.log('color is black');
+} */
+
+var i = 0;
+while (i < 10) {
+    // console.log(i);
+    if (i == 5) {
+        break;
+    }
+    i++;
+}
+
+for (var i = 0; i <= 20; i++) {
+    // console.log(i);
+    if (i > 8) {
+        break;
+    }
+}
+
+var numbers = [54, 35, 21, 98, 23, 101, 45, 67];
+for (var i = 0; i < numbers.length; i++) {
+    var number = numbers[i];
+    // console.log(number);
+    if (number > 90) {
+        break;
+    }
+}
+
+for (var i = 0; i < numbers.length; i++) {
+    var number = numbers[i];
+    if (number > 70) {
+        continue;
+    }
+    console.log(number);
+}
