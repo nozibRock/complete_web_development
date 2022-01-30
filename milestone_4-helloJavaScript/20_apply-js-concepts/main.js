@@ -93,7 +93,6 @@ var nanaInches = 168;
 var feet = inchToFeet(nanaInches);
 console.log('nana inches in feet', feet);
 
-
 // mile to km
 function mileToKilometer(miles) {
     var km = miles * 1.60934;
@@ -102,3 +101,21 @@ function mileToKilometer(miles) {
 
 var marathon = mileToKilometer(26.2);
 console.log('marathon in km: ', marathon);
+
+
+// odd-even
+/* const number = 4;
+const remainder = number % 2;
+console.log(remainder == 0); 
+console.log(number % 2 == 0); */
+
+function isEvenOrOdd(number) {
+    if (number % 2 == 0) {
+        console.log(number + " " +'is an even number');
+    } else if (number % 2 == 1 && number % 2 != 0) {
+        console.log(number + " " +'is an odd number' );
+    }
+}
+
+isEvenOrOdd(1641);
+isEvenOrOdd(1892);
