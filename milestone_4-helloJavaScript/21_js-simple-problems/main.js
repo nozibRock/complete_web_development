@@ -24,8 +24,8 @@
 
 
 // swap
-let first = 50;
-let second = 79;
+// let first = 50;
+// let second = 79;
 // console.log(first, second);
 // first approach
 // let temp = first;
@@ -34,14 +34,14 @@ let second = 79;
 // console.log(first, second);
 
 // destructuring
-[first, second] = [second, first]
+// [first, second] = [second, first];
 // console.log(first, second);
 
 
 // max
- const business = 850;
- const minister = 750;
- const army = 900;
+//  const business = 850;
+//  const minister = 750;
+//  const army = 900;
 
 //  if (business > minister) {
 //      console.log('Business person er pola is bigger');
@@ -59,7 +59,7 @@ else {
     console.log('army is bigger');
 } */
 
-var max = Math.max(business, minister, army);
+// var max = Math.max(business, minister, army);
 // console.log('largest is', max);
 
 
@@ -76,7 +76,7 @@ var max = Math.max(business, minister, army);
 // console.log('largest is', largest);
 
 // Task 1: create a function that takes three numbers as input parameter and returns you the largest number of the three
-function findLargest(first, second, third) {
+/* function findLargest(first, second, third) {
     if (first > second && first > third) {
         return first;
     }
@@ -85,12 +85,12 @@ function findLargest(first, second, third) {
     } else {
         return third;
     }
-}
+} */
 
-const largest = findLargest(354, 241, 1542);
-console.log('largest is', largest);
+// const largest = findLargest(354, 241, 1542);
+// console.log('largest is', largest);
 // Task 2: Write a function to find the smallest of three numbers.
-function findSmallest(first, second, third) {
+/* function findSmallest(first, second, third) {
     if (first < second && first < third) {
         return first;
     }
@@ -99,7 +99,63 @@ function findSmallest(first, second, third) {
     } else {
         return third;
     }
+} */
+
+// const smallest = findSmallest(354, 241, 1542);
+// console.log('Smallest number is', smallest);
+
+
+// sum
+// const numbers = [44, 23, 34, 32, 54, 5, 78];
+// let sum = 0;
+/* for (let index = 0; index < numbers.length; index++) {
+    const element = numbers[index];
+    console.log(index, element);
+    sum += element;
+} */
+// console.log(sum);
+
+/* function arrayTotal(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        const element = numbers[i];
+        sum = sum + element;
+    }
+    return sum;
+} */
+
+// const total = arrayTotal([32, 45, 67, 44, 23, 34, 32, 54, 5, 78]);
+// console.log('array total', total);
+
+
+// largest-element
+function largestElement(numbers) {
+    let largest = numbers[0];
+    for (let index = 0; index < numbers.length; index++) {
+        const element = numbers[index];
+        if (element > largest) {
+            largest = element;
+        }
+    }
+    return largest;
 }
 
-const smallest = findSmallest(354, 241, 1542);
-console.log('Smallest number is', smallest);
+// Task: find the lowest or smallest element of an array
+function smallestElement(smallNum) {
+    let smallest = smallNum[0];
+    for (let i = 0; i < smallNum.length; i++) {
+        const object = smallNum[i];
+        if (object < smallest) {
+            smallest = object;
+        }
+    }
+    return smallest;
+}
+
+const ages = [12, 54, 2, 34, 75, 32, 12];
+const oldest = largestElement(ages);
+console.log('Oldest biatch', oldest);
+const smallAges = smallestElement(ages);
+console.log("Smallest age holder is: ", smallAges);
+const oldest2 = largestElement([-12, -6, -17]);
+console.log('oldest2', oldest2);
