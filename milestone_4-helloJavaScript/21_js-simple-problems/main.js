@@ -129,7 +129,7 @@ else {
 
 
 // largest-element
-function largestElement(numbers) {
+/* function largestElement(numbers) {
     let largest = numbers[0];
     for (let index = 0; index < numbers.length; index++) {
         const element = numbers[index];
@@ -138,10 +138,10 @@ function largestElement(numbers) {
         }
     }
     return largest;
-}
+} */
 
 // Task: find the lowest or smallest element of an array
-function smallestElement(smallNum) {
+/* function smallestElement(smallNum) {
     let smallest = smallNum[0];
     for (let i = 0; i < smallNum.length; i++) {
         const object = smallNum[i];
@@ -150,12 +150,105 @@ function smallestElement(smallNum) {
         }
     }
     return smallest;
-}
+} */
 
-const ages = [12, 54, 2, 34, 75, 32, 12];
-const oldest = largestElement(ages);
-console.log('Oldest biatch', oldest);
-const smallAges = smallestElement(ages);
-console.log("Smallest age holder is: ", smallAges);
-const oldest2 = largestElement([-12, -6, -17]);
-console.log('oldest2', oldest2);
+// const ages = [12, 54, 2, 34, 75, 32, 12];
+// const oldest = largestElement(ages);
+// console.log('Oldest biatch', oldest);
+// const smallAges = smallestElement(ages);
+// console.log("Smallest age holder is: ", smallAges);
+// const oldest2 = largestElement([-12, -6, -17]);
+// console.log('oldest2', oldest2);
+
+
+// fibonacci
+// [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ]
+
+/* 
+3rd = 2nd + 1st
+4th = 3rd + 2nd
+5th = 4th + 3rd
+6th = 5th + 4th
+16th = 15th + 14th
+119th = 118th + 117th
+nth = (n-1)th + (n-2)th
+ith = (i-1)th + (i-2)th 
+*/
+const fibo = [0, 1];
+for (let index = 2; index < 10; index++) {
+    fibo[index] = fibo[index - 1] + fibo[index - 2];
+}
+console.log(fibo);
+
+function fibonacciSeries(numberOfElements) {
+    const fibo = [0, 1];
+    for (let index = 2; index < numberOfElements; index++) {
+        fibo[index] = fibo[index - 1] + fibo[index - 2];
+    }
+    return fibo;
+}
+const fiboSeries = fibonacciSeries(13);
+console.log(fiboSeries);
+
+function fibonacciSeries(numberOfElements) {
+    if (typeof numberOfElements != 'number') {
+        return 'Please enter a valid number';
+    }
+    if (numberOfElements < 2) {
+        return 'Please enter a positive number greater than 1';
+    }
+    const fibo = [0, 1];
+    for (let index = 2; index < numberOfElements; index++) {
+        fibo[index] = fibo[index - 1] + fibo[index - 2];
+    }
+    return fibo;
+}
+const fiboSeries = fibonacciSeries(13);
+console.log(fiboSeries);
+
+
+// fibonacci-recursive
+function fibonacci(n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+const fiboElement = fibonacci(8);
+console.log(fiboElement);
+
+function fibonacciSeries(n) {
+    if (n == 0) {
+        return [0];
+    }
+    if (n == 1) {
+        return [0, 1];
+    }
+    const fibo = fibonacciSeries(n-1);
+    fibo[n] = fibo[n-1] + fibo[n-2];
+    return fibo;
+}
+const fiboSeries = fibonacciSeries(8);
+console.log(fiboSeries);
+/* var a = 5; var b = 8; var c = 4; var d = 6; var highest = Math.max(a, b, c, d); console.log(highest);
+var mathFloor = 13.67;
+console.log(Math.floor(mathFloor));
+function add(a, b){
+  return a + b;
+}
+console.log(add("adam" + "eve"));
+var result = 100 + Math.random()*100;
+console.log(result);
+
+var sentence = "I am hardworking. I am determined. I will be a web developer.";
+var count = 0;
+for(var i = 0; i < sentence.length; i++){
+  var letter = sentence[i];
+  if(letter == 'a'){
+    count++;
+  }
+}
+console.log(count) */
