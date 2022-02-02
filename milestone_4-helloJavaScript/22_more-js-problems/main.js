@@ -96,10 +96,8 @@ bedWood = 50cft/bed
 const firstOption = woodCalculator(6, 1, 3);
 console.log("Total Wood need: ", firstOption, "cft"); */
 
-
-
 // divisible - by
-for (let index = 1; index <= 50; index++) {
+/* for (let index = 1; index <= 50; index++) {
     if (index % 3 == 0 && index % 5 == 0) {
       console.log("foobar");
     } else if (index % 3 == 0) {
@@ -109,11 +107,10 @@ for (let index = 1; index <= 50; index++) {
     } else {
       console.log(index);
     }  
-}
-
+} */
 
 // cheapest - phone
-const phones = [
+/* const phones = [
   { name: "samsung s5", price: 45000, camera: 10, storage: 32 },
   { name: "walton m32", price: 15000, camera: 8, storage: 8 },
   { name: "shaomi m3", price: 12000, camera: 8, storage: 16 },
@@ -121,3 +118,71 @@ const phones = [
   { name: "nokia n95", price: 8000, camera: 8, storage: 4 },
   { name: "htc h81", price: 25000, camera: 8, storage: 16 },
 ];
+
+let cheapest = phones[0];
+for (const phone of phones) {
+  // compare price only
+  if (phone.price < cheapest.price) {
+    cheapest = phone;
+  }
+}
+// console.log(cheapest); */
+
+// total-price
+/* const products = [
+  { name: "laptop", price: 43000 },
+  { name: "shirt", price: 500 },
+  { name: "watch", price: 3680 },
+  { name: "phone", price: 55000 },
+];
+
+let totalPrice = 0;
+
+for (const product of products) {
+    totalPrice = totalPrice + product.price;
+}
+// console.log(totalPrice);
+
+const cart = [
+  { name: "laptop", price: 43000, quantity: 1 },
+  { name: "shirt", price: 500, quantity: 8 },
+  { name: "watch", price: 3680, quantity: 3 },
+  { name: "phone", price: 55000, quantity: 1 },
+];
+let cartTotal = 0;
+for (const product of cart) {
+    console.log(product);
+    const productTotal = product.price * product.quantity;
+    cartTotal += productTotal;
+    // cartTotal = cartTotal + productTotal;
+}
+console.log(cartTotal); */
+
+
+// animal-count
+function animalCount(miles) {
+    const animalDensityFirst10Miles = 10;
+    const animalDensitySecond10Miles = 50;
+    const animalDensityRestMiles = 100;
+    if (miles <= 10) {
+      const count = miles * animalDensityFirst10Miles;
+      return count;
+    } else if (miles <= 20) {
+      const firstDenseAnimals = 10 * animalDensityFirst10Miles;
+      const restMiles = miles - 10;
+      const secondDenseAnimals = restMiles * animalDensitySecond10Miles;
+      const totalAnimals = firstDenseAnimals + secondDenseAnimals;
+      return totalAnimals;
+    } else {
+      const firstDenseAnimals = 10 * animalDensityFirst10Miles;
+      const secondDenseAnimals = 10 * animalDensitySecond10Miles;
+      const restMiles = miles - 20;
+      const RestDenseAnimals = restMiles * animalDensityRestMiles;
+      const totalAnimals =
+        firstDenseAnimals + secondDenseAnimals + RestDenseAnimals;
+      return totalAnimals;
+    }
+}
+
+const animals = animalCount(35);
+console.log("Total Animals: " + animals);
