@@ -31,6 +31,28 @@ thirdTitle.style.backgroundColor = "salmon";
 thirdTitle.style.padding = "10px";
 thirdTitle.style.margin = "20px";
 
+// create and add element by using JS
+// create the element
+const list = document.createElement("li");
+list.innerText = "Blog-5";
+// where to
+const unOrderedList = document.getElementById("blog-list");
+
+// append new element
+unOrderedList.appendChild(list);
+
+// add article
+const article = document.createElement("article");
+article.classList.add("blog");
+
+article.innerHTML = `
+    <h3>My Awesome Blog-5</h3>
+    <p>Vitae a error culpa quas quos tempora. Ipsa iusto, nostrum inventore cupiditate molestiae dolorum!</p>
+`;
+
+// parent of article
+const blogSection = document.getElementById("blogs");
+blogSection.appendChild(article);
 
 // explore getElementsByClassName
 const blogs = document.getElementsByClassName("blog");
