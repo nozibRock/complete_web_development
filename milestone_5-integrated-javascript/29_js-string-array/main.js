@@ -50,4 +50,39 @@ for (const product of products) {
     output.push(product);
   }
 }
-console.log(output);
+// console.log(output);
+
+
+// string-slice
+const words = anthem.split(' ');
+// console.log(words);
+const withoutA =  anthem.split('a');
+// console.log(withoutA);
+
+// slice 
+const smallSlice = anthem.slice(5, 13);
+// console.log(anthem);
+// console.log(smallSlice);
+
+// substr
+const anotherPart = anthem.substr(11, 8);
+// console.log(anotherPart);
+
+// substring
+const anotherAnotherPart = anthem.substring(11, 15);
+// console.log(anotherAnotherPart);
+
+//concat
+const first = 'Amader';
+const second = 'City';
+// const fullString = first + second;
+const fullString = first.concat(second).concat('ab').concat('RJ Kibria')
+// console.log(fullString);
+
+const words2 = ["Aleem", "Dar", "is", "a", "Pakistani", "cricket", "umpire"];
+// const allJoined = words2.join('');
+const allJoined = words2.join(' ');
+// const allJoined = words2.join(',');
+// const allJoined = words2.join(', ');
+// const allJoined = words2.join("WWW");
+console.log(allJoined);
