@@ -11,9 +11,8 @@ const savedUserName = "blackPink";
 // console.log(savedUserName.toLowerCase());
 
 if (userInput.toLowerCase() == savedUserName.toLowerCase()) {
-//   console.log("user exists");
+  //   console.log("user exists");
 }
-
 
 // string-search
 const products = [
@@ -31,9 +30,9 @@ const searching = "dell";
 // indexOf
 const output = [];
 for (const product of products) {
-    if (product.toLowerCase().indexOf(searching.toLowerCase()) != -1) {
+  if (product.toLowerCase().indexOf(searching.toLowerCase()) != -1) {
     //   output.push(product);
-    }
+  }
 }
 // console.log(output);
 
@@ -52,14 +51,13 @@ for (const product of products) {
 }
 // console.log(output);
 
-
 // string-slice
-const words = anthem.split(' ');
+const words = anthem.split(" ");
 // console.log(words);
-const withoutA =  anthem.split('a');
+const withoutA = anthem.split("a");
 // console.log(withoutA);
 
-// slice 
+// slice
 const smallSlice = anthem.slice(5, 13);
 // console.log(anthem);
 // console.log(smallSlice);
@@ -73,47 +71,46 @@ const anotherAnotherPart = anthem.substring(11, 15);
 // console.log(anotherAnotherPart);
 
 //concat
-const first = 'Amader';
-const second = 'City';
+const first = "Amader";
+const second = "City";
 // const fullString = first + second;
-const fullString = first.concat(second).concat('ab').concat('RJ Kibria')
+const fullString = first.concat(second).concat("ab").concat("RJ Kibria");
 // console.log(fullString);
 
 const words2 = ["Aleem", "Dar", "is", "a", "Pakistani", "cricket", "umpire"];
 // const allJoined = words2.join('');
-const allJoined = words2.join(' ');
+const allJoined = words2.join(" ");
 // const allJoined = words2.join(',');
 // const allJoined = words2.join(', ');
 // const allJoined = words2.join("WWW");
 // console.log(allJoined);
 
-
 // array-exists
 function megaFriend(friends) {
-    if (Array.isArray(friends) == false) {
-        return 'Please provide an array';
+  if (Array.isArray(friends) == false) {
+    return "Please provide an array";
+  }
+  let mega = friends[0];
+  for (const friend of friends) {
+    if (friend.length > mega.length) {
+      mega = friend;
     }
-    let mega = friends[0];
-    for (const friend of friends) {
-        if (friend.length > mega.length) {
-            mega = friend;
-        }
-    }
-    return mega;
+  }
+  return mega;
 }
-const friends = ['kutub', 'Lion', 'Shamol', 'Sabbir'];
+const friends = ["kutub", "Lion", "Shamol", "Sabbir"];
 const myBigBuddy = megaFriend(friends);
 // console.log(myBigBuddy);
 
 if (friends.indexOf("Fox") != -1) {
-//   console.log("Fox exists");
+  //   console.log("Fox exists");
 } else {
-//   console.log("Fox doesn't exists");
+  //   console.log("Fox doesn't exists");
 }
 
-// includes 
+// includes
 if (friends.includes("Lion") == true) {
-//   console.log("Lion exits using includes");
+  //   console.log("Lion exits using includes");
 }
 
 // concat
@@ -121,8 +118,6 @@ const firstArray = [1, 3, 5];
 const secondArray = [4, 6, 8, 9];
 const combined = firstArray.concat(secondArray);
 // console.log(combined);
-
-
 
 const numbers = [3, 6, 4, 8, 9, 19, 15, 21, 45, 87];
 //slice
@@ -140,7 +135,6 @@ const numbers = [3, 6, 4, 8, 9, 19, 15, 21, 45, 87];
 // console.log(numberSpliced2);
 // console.log(numbers);
 
-
 // array-sort
 const numbersArray = [6, 4, 7, 1, 3, 9, 2, 8, 5];
 const sortedNumbers = numbersArray.sort();
@@ -152,11 +146,44 @@ const friendsArray = ["kabli", "josim", "razzak", "anwar", "deepjol", "badsha"];
 // const reversedFriends = friendsArray.reverse();
 // console.log(reversedFriends);
 const sortedReversedFriends = friendsArray.sort().reverse();
-console.log(sortedReversedFriends);
+// console.log(sortedReversedFriends);
 
 // number sorting fun
 const bigNumbers = [66, 58, 81, 92, 9, 6, 37, 13, 2];
 const sortedBigNumbers = bigNumbers.sort(function (x, y) {
-    return (x - y);
+  return x - y;
 });
-console.log(sortedBigNumbers);
+// console.log(sortedBigNumbers);
+
+// arguments
+function addNumbers() {
+  let result = 0;
+  for (const num of arguments) {
+    result = result + num;
+  }
+  return result;
+}
+const sum = addNumbers(27, 16, 23, 13, 50, 100, 45, 76, 198, 901);
+// console.log(sum);
+
+function getFullName(firstName, lastName) {
+    let fullName = ' ';
+    for (const part of arguments) {
+        fullName = fullName + part + ' ';
+    }
+    return fullName;
+}
+const name = getFullName(
+  "Omuk",
+  "Songket",
+  "bin",
+  "Hanif",
+  "Songket",
+  "bin",
+  "Tomuk",
+  "Songket",
+  "bin",
+  "Kumuk",
+  "Songket"
+);
+console.log(name);
