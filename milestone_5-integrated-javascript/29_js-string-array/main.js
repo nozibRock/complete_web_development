@@ -200,11 +200,24 @@ try {
 catch (error) {
     console.log('getting error', error);
 }
-console.log(100);
-console.log(myName);
+// console.log(100);
+// console.log(myName);
 
 // for (let i = 0; i < 10 i++) {
 
 // }
 // name = 'tumi';
 // console.log(name);
+
+
+// date
+const myFavDate = new Date('1996-10-10');
+console.log(myFavDate);
+
+const anotherDate = new Date(1996, 10, 10, 11, 50, 40, 80);
+console.log(anotherDate);
+
+
+if (myFavDate.getTime() < anotherDate.getTime()) {
+  console.log("favorite is earlier");
+}
