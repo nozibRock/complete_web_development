@@ -135,7 +135,28 @@ const numbers = [3, 6, 4, 8, 9, 19, 15, 21, 45, 87];
 // const numberSpliced = numbers.splice(4, 3);
 // console.log(numberSpliced);
 // console.log(numbers);
-console.log(numbers);
-const numberSpliced2 = numbers.splice(4, 3, 99, 111, 777, 888, 999);
-console.log(numberSpliced2);
-console.log(numbers);
+// console.log(numbers);
+// const numberSpliced2 = numbers.splice(4, 3, 99, 111, 777, 888, 999);
+// console.log(numberSpliced2);
+// console.log(numbers);
+
+
+// array-sort
+const numbersArray = [6, 4, 7, 1, 3, 9, 2, 8, 5];
+const sortedNumbers = numbersArray.sort();
+// console.log(sortedNumbers);
+
+const friendsArray = ["kabli", "josim", "razzak", "anwar", "deepjol", "badsha"];
+// const sortedFriends = friendsArray.sort();
+// console.log(sortedFriends);
+// const reversedFriends = friendsArray.reverse();
+// console.log(reversedFriends);
+const sortedReversedFriends = friendsArray.sort().reverse();
+console.log(sortedReversedFriends);
+
+// number sorting fun
+const bigNumbers = [66, 58, 81, 92, 9, 6, 37, 13, 2];
+const sortedBigNumbers = bigNumbers.sort(function (x, y) {
+    return (x - y);
+});
+console.log(sortedBigNumbers);
