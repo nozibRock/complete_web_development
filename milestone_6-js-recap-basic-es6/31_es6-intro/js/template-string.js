@@ -19,7 +19,7 @@ const friends = ["abdul", "babul", "kabul", "siblu"];
 const count = 5;
 const old = '<h3 class="friend-name">Friend-5</h3>';
 const old2 = '<h3 class="friend-name">Friend-5</h3>';
-const new1 = `<h3 class="friend-name">Friend-${count}</h3>`;
+const old3 = `<h3 class="friend-name">Friend-${count}</h3>`;
 const new2 = `<h3 class="friend-name">Friend-${friends.length}</h3>`;
 
 // console.log(new1);
