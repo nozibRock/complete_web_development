@@ -43,3 +43,4 @@ const studentStr1 = JSON.stringify(student, function (key, value) {
 console.log(studentStr1);
 const studentStr2 = JSON.stringify(student, ['id', 'name', 'email']);
 console.log(studentStr2);
+
