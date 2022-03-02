@@ -1,0 +1,15 @@
+.heading {
+  color: #4a4a4a;
+}
+.display-class {
+    display: none;
+}
+.cursor {
+    cursor: pointer;
+}
+#spinner {
+    display: none;
+}
+.spinner-border {
+    color: lightseagreen;
+}
