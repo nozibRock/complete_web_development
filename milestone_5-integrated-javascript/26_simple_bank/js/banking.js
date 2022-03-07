@@ -54,3 +54,4 @@ document
     // clear withdraw input
     withdrawInput.value = "";
   });
+
