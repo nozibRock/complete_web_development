@@ -1,0 +1,15 @@
+#chart {
+  height: 400px;
+}
+.dialog p {
+  font-size: 1.2em;
+}
+#dialog-last-item span {
+  font-size: 2em;
+}
+#dialog-error span {
+  font-size: 1.3em;
+}
+#dialog-record-count span {
+  font-size: 2.5em;
+}
