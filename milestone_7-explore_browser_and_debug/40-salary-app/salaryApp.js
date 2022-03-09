@@ -48,9 +48,7 @@ const drawChart = function drawChart(data) {
 //save new item
 document.addEventListener("DOMContentLoaded", () => {
   initializeChart(salary_data);
-  document
-    .getElementById("AddRecord")
-    .addEventListener("click", addRecordHandler);
+  document.getElementById("AddRecord").addEventListener("click", addRecordHandler);
   const btnShowLast = document.getElementById("showLast");
   btnShowLast.addEventListener("click", function showLastHandler(e) {
     showLastItem();
@@ -88,7 +86,9 @@ function addRecordHandler() {
     return;
   }
 
-  addRecord(name, !salary);
+  addRecord(name, salary);
+  name = '';
+  salary = '';
 }
 
 function addRecord(name, salary) {
@@ -115,9 +115,9 @@ function secondHandler(e) {
 const showLastItem = function () {
   const items = salary_data;
   let lastKey;
-  for (const key in items){
+  for (const key in items) {
     lastKey = key;
-  };
+  }
   const lastItem = items[lastKey];
   const lastRecord = getRecord(lastItem.name, lastItem.salary);
   displayLastItemDialog(lastRecord);
@@ -131,18 +131,22 @@ const loadFirebaseData = function (resHandler) {
 
 const displayLastItemDialog = function (lastItem) {
   const dlg = document.getElementById("dialog-last-item");
-  dlg.classList.remove("hide");
-  document.getElementById("showName").innerText = lastItem.name;
-  document.getElementById("showSalary").innerText = d3.format(",.0f")(
+  const lastItemDiv = document.createElement("div");
+  lastItemDiv.classList.add("modal-body");
+  lastItemDiv.innerHTML = `
+  <div class="modal-header">
+    <h5 class="modal-title mx-auto" id="exampleModalLabel">Last Item in the Chart</h5>
+  </div>
+  <p class="text-center"> <b>Name</b>: ${lastItem.name}</p>
+  <p class="text-center"> <b>Salary</b>: ${d3.format(",.1f")(
     lastItem.salary
-  );
-  dlg.dialog({
-    buttons: {
-      Ok: function () {
-        $(this).dialog("close");
-      },
-    },
-  });
+  )}</p>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+  `;
+
+  dlg.appendChild(lastItemDiv);
 };
 
 var showDataError = function (name, salary) {
@@ -225,7 +229,7 @@ const uniquifyNames = function (items) {
   const uniqueNames = {};
 
   return items.map(function (item) {
-    if (uniqueNames[item.name]) {
+    if (uniqueNames[item.name] !== undefined) {
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
     } else {
