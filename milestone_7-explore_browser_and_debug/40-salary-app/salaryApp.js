@@ -134,7 +134,9 @@ const loadFirebaseData = function (resHandler) {
 const displayLastItemDialog = function (lastItem) {
   const dlg = document.getElementById("dialog-last-item");
   const lastItemDiv = document.createElement("div");
-  lastItemDiv.classList.add("modal-body");
+  // lastItemDiv.classList.add("modal-body");
+  // lastItemDiv.className = "modal-body";
+  lastItemDiv.setAttribute("class", "modal-body");
   lastItemDiv.innerHTML = `
   <div class="modal-header">
     <h5 class="modal-title mx-auto" id="exampleModalLabel">Last Item in the Chart</h5>
@@ -242,3 +244,5 @@ const uniquifyNames = function (items) {
     return item;
   });
 };
+const colors = { mango: "green", grapes: "black", organe: "yellow" };
+console.log(colors[grapes]);
