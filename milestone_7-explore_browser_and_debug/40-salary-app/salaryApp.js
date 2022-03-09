@@ -48,7 +48,9 @@ const drawChart = function drawChart(data) {
 //save new item
 document.addEventListener("DOMContentLoaded", () => {
   initializeChart(salary_data);
-  document.getElementById("AddRecord").addEventListener("click", addRecordHandler);
+  document
+    .getElementById("AddRecord")
+    .addEventListener("click", addRecordHandler);
   const btnShowLast = document.getElementById("showLast");
   btnShowLast.addEventListener("click", function showLastHandler(e) {
     showLastItem();
@@ -87,8 +89,8 @@ function addRecordHandler() {
   }
 
   addRecord(name, salary);
-  name = '';
-  salary = '';
+  document.getElementById("name").value = "";
+  document.getElementById("salary").value = "";
 }
 
 function addRecord(name, salary) {
@@ -150,45 +152,47 @@ const displayLastItemDialog = function (lastItem) {
 };
 
 var showDataError = function (name, salary) {
-  const dlg = document.getElementById("#dialog-error");
-  dlg.classList.remove("hide");
-
-  toggleErrorMessage("#newName", name, "Who the hell you are talking about!");
-  toggleErrorMessage("#newSalary", salary, "How much that guy make!");
-
-  dlg.dialog({
-    width: 600,
-    buttons: {
-      Ok: function () {
-        $(this).dialog("close");
+  /* const dlg = document.getElementById("#dialog-error");
+  dlg.classList.remove("hide"); */
+  swal("Your Boss is watching!").then((name, salary) => {
+    swal({
+      button: {
+        text: "Try Again",
       },
-    },
+      title: `Who the hell you are talking about!`,
+      text: `"How much that guy make!`,
+      icon: "warning",
+    });
   });
+  /* toggleErrorMessage("#newName", name, "Who the hell you are talking about!");
+  toggleErrorMessage("#newSalary", salary, "How much that guy make!"); */
 };
 
-function toggleErrorMessage(selector, value, msg) {
+/* function toggleErrorMessage(selector, value, msg) {
   if (value) {
     document.getElementById(selector + "line").style.display = "none";
   } else {
     document.getElementById(selector + "line").style.display = "block";
     document.getElementById(selector).innerText = msg;
   }
-}
+} */
 
 const showRecordCount = function (data) {
+  const lastItemDiv = document.createElement("div");
   const dlg = document.getElementById("dialog-record-count");
-
-  dlg.classList.remove("hide");
-
-  document.getElementById("numberOfRecords").innerText = data.length;
-
-  dlg.dialog({
-    buttons: {
-      Ok: function () {
-        $(this).dialog("close");
-      },
-    },
-  });
+  lastItemDiv.classList.add("modal-body");
+  const totalCount = data.length;
+  dlg.innerHTML = ``;
+  lastItemDiv.innerHTML = `
+  <div class="modal-header">
+        <h5 class="modal-title mx-auto" id="exampleModalLabel">Total Record Count</h5>
+      </div>
+      <p><b>Record count</b>:${totalCount}</p>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+  `;
+  dlg.appendChild(lastItemDiv);
 };
 
 const anotherRecordCountHandler = function anotherRecordCountHandler(e) {
