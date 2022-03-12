@@ -1,3 +1,12 @@
+const searchBtn = document.getElementById("button-search");
+const searchInput = document.getElementById("searchField");
+searchInput.addEventListener('keypress', function (event) {
+  // event.preventDefault();
+  if (event.keyCode == 13) {
+    searchBtn.click();
+  }
+})
+
 //error message
 document.getElementById("error-message").style.display = "none";
 const displayError = (error) => {
@@ -37,7 +46,9 @@ const displaySearchResults = (meals) => {
     const mealDiv = document.createElement("div");
     mealDiv.classList.add("col");
     mealDiv.innerHTML = `
-            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="loadMealDetail(${meal.idMeal})">
+            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="loadMealDetail(${
+              meal.idMeal
+            })">
                 <img src="${meal.strMealThumb} " class="card-img-top" alt="${
       meal.strMeal
     }">
@@ -48,7 +59,9 @@ const displaySearchResults = (meals) => {
                       250
                     )} </p>
                     
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="loadMealDetail(${meal.idMeal})">Launch details</button>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="loadMealDetail(${
+                      meal.idMeal
+                    })">Launch details</button>
 
                 </div>
             </div>

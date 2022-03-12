@@ -1,5 +1,8 @@
+
+
 //error message
 document.getElementById("error-message").style.display = "none";
+
 const displayError = (error) => {
   document.getElementById("error-message").style.display = "block";
 };
