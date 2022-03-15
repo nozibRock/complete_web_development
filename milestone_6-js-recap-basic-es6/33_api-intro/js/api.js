@@ -1,4 +1,4 @@
-console.log("api.js connected");
+// console.log("api.js connected");
 
 function loadData() {
   fetch("https://jsonplaceholder.typicode.com/todos/1")
@@ -20,11 +20,11 @@ function loadPosts() {
 }
 
 function displayUsers(data) {
-  console.log(data);
+  // console.log(data);
   const userList = document.getElementById("users");
   for (const user of data) {
-    console.log(user);
-    console.log(user.name);
+    // console.log(user);
+    // console.log(user.name);
     const userName = user.name;
     const userEmail = user.email;
     const listOfUsers = document.createElement("li");

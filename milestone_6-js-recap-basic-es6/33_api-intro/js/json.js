@@ -1,10 +1,10 @@
-console.log("API");
+// console.log("API");
 // javascript Object Notation
 // JSON
 const user = { id: 11, userName: "Aamir Khan", job: "actor" };
 const stringified = JSON.stringify(user);
-console.log(stringified);
-console.log(user);
+// console.log(stringified);
+// console.log(user);
 
 const shop = {
   name: "Alia Store",
@@ -19,12 +19,12 @@ const shop = {
 };
 
 const shopStringified = JSON.stringify(shop);
-console.log(shop);
-console.log(shopStringified);
+// console.log(shop);
+// console.log(shopStringified);
 
 const converted = JSON.parse(shopStringified)
-console.log(converted);
-console.log(converted.owner);
+// console.log(converted);
+// console.log(converted.owner);
 
 const student = {
     id: 1001, 
@@ -40,7 +40,7 @@ const studentStr1 = JSON.stringify(student, function (key, value) {
         return value;
     }
 });
-console.log(studentStr1);
+// console.log(studentStr1);
 const studentStr2 = JSON.stringify(student, ['id', 'name', 'email']);
-console.log(studentStr2);
+// console.log(studentStr2);
 

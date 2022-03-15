@@ -7,7 +7,7 @@ function loadPosts() {
 loadPosts();
 
 function displayPosts(posts) {
-  console.log(posts);
+//   console.log(posts);
   const postContainer = document.getElementById("posts");
   
   for (const post of posts) {
@@ -20,8 +20,8 @@ function displayPosts(posts) {
         <p>${postBody} </p>
         `;
         postContainer.appendChild(div)
-    console.log(post.title);
-    console.log(post);
+    // console.log(post.title);
+    // console.log(post);
   }
 }
 
