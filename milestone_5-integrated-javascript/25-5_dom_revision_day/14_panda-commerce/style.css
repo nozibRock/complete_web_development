@@ -1,0 +1,16 @@
+.carousel-bg {
+    background-color: rgb(252, 234, 232);
+}
+.carousel_price {
+    color: rgb(255, 19, 111);
+}
+.buy_now_btn {
+    background-image: linear-gradient(rgb(255, 88, 155) 0%, rgb(255, 19, 111) 100%); 
+    color: #ffffff !important;
+    border-color: rgb(255, 88, 155) !important;
+    border-radius: 8px !important;
+    padding: 9px 25px !important;
+}
+#shoes_bg {
+    background-color: orange;
+}
