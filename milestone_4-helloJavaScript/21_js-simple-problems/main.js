@@ -174,13 +174,13 @@ else {
 nth = (n-1)th + (n-2)th
 ith = (i-1)th + (i-2)th 
 */
-const fibo = [0, 1];
+/* const fibo = [0, 1];
 for (let index = 2; index < 10; index++) {
     fibo[index] = fibo[index - 1] + fibo[index - 2];
 }
-console.log(fibo);
+console.log(fibo); */
 
-function fibonacciSeries(numberOfElements) {
+/* function fibonacciSeries(numberOfElements) {
     const fibo = [0, 1];
     for (let index = 2; index < numberOfElements; index++) {
         fibo[index] = fibo[index - 1] + fibo[index - 2];
@@ -188,9 +188,9 @@ function fibonacciSeries(numberOfElements) {
     return fibo;
 }
 const fiboSeries = fibonacciSeries(13);
-console.log(fiboSeries);
+console.log(fiboSeries); */
 
-function fibonacciSeries(numberOfElements) {
+/* function fibonacciSeries(numberOfElements) {
     if (typeof numberOfElements != 'number') {
         return 'Please enter a valid number';
     }
@@ -202,13 +202,13 @@ function fibonacciSeries(numberOfElements) {
         fibo[index] = fibo[index - 1] + fibo[index - 2];
     }
     return fibo;
-}
-const fiboSeries = fibonacciSeries(13);
-console.log(fiboSeries);
+} */
+// const fiboSeries = fibonacciSeries(13);
+// console.log(fiboSeries);
 
 
 // fibonacci-recursive
-function fibonacci(n) {
+/* function fibonacci(n) {
     if (n == 0) {
         return 0;
     }
@@ -216,11 +216,11 @@ function fibonacci(n) {
         return 1;
     }
     return fibonacci(n-1) + fibonacci(n-2);
-}
-const fiboElement = fibonacci(8);
-console.log(fiboElement);
+} */
+// const fiboElement = fibonacci(8);
+// console.log(fiboElement);
 
-function fibonacciSeries(n) {
+/* function fibonacciSeries(n) {
     if (n == 0) {
         return [0];
     }
@@ -232,7 +232,36 @@ function fibonacciSeries(n) {
     return fibo;
 }
 const fiboSeries = fibonacciSeries(8);
-console.log(fiboSeries);
+console.log(fiboSeries); */
+
+
+// summary
+const number1 = 1.23675;
+const number2 = 589.23675;
+// Math.floor
+// Math.ceil
+// Math.round
+
+
+/* const random = Math.random();
+const between10 = random * 100;
+const rounded = Math.round(between10);
+console.log(rounded); */
+
+const selected = [];
+for (let i = 0; i < 10; i++) {
+    const random = Math.random() * 100;
+    const picked = Math.round(random);
+    if (selected.indexOf(picked) == -1) {
+        selected.push(picked);
+    }
+    else {
+        console.log('found duplicate: ', selected, picked)
+    }
+}
+console.log(selected);
+
+
 /* var a = 5; var b = 8; var c = 4; var d = 6; var highest = Math.max(a, b, c, d); console.log(highest);
 var mathFloor = 13.67;
 console.log(Math.floor(mathFloor));
