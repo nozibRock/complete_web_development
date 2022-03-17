@@ -47,7 +47,6 @@ function ExternalUsers() {
         <User name={user.name} email={user.email}></User>
       ))}
 
-      <User></User>
     </div>
   );
 }
