@@ -21,6 +21,17 @@ function LoadCountries() {
     <div>
       <h1>Visiting every Country of the World!!!</h1>
       <h3>Available Countries: {countries.length} </h3>
+      {countries.map((country) => (
+        <CountryDetails name={country.name.official}></CountryDetails>
+      ))}
+    </div>
+  );
+}
+function CountryDetails(props) {
+  
+  return (
+    <div>
+      <h3> {props.name} </h3>
     </div>
   );
 }
