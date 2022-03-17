@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Country from '../Country/Country';
 
 const Countries = () => {
+    const [countries, setCountries] = useState([])
+    useEffect(() => {
+      fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) => setCountries(data));
+    
+    }, [])
+    
     return (
-        <div>
-            <h2>Countries in other File.</h2>
-        </div>
+      <div>
+        <h3>Available Countries: {countries.length} </h3>
+        {countries.map((country) => (
+          <Country
+            name={country.name.official}
+            population={country.population}
+            area={country.area}
+          ></Country>
+        ))}
+      </div>
     );
 };
 
