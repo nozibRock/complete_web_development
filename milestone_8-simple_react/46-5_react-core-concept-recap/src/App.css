@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.district {
+  background: lightblue;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.district h3 span {
+  color: gold;
+}
