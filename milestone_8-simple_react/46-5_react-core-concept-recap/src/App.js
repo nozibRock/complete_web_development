@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Posts from "./components/Posts/Posts";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Mobile from "./components/Mobile/Mobile";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container my-5 App">
+      <Mobile></Mobile>
       <Posts></Posts>
       <LoadPosts></LoadPosts>
       <District

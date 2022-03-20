@@ -5,7 +5,7 @@ import './Posts.css'
 const Posts = () => {
     const blogPosts = [
       {
-        title: "JAVASCRIPT",
+        heading: "JAVASCRIPT",
         body: `JavaScript is the world most popular 
       lightweight, interpreted compiled programming 
       language. It is also known as scripting 
@@ -19,7 +19,7 @@ const Posts = () => {
           "https://media.geeksforgeeks.org/img-practice/banner/diving-into-excel-thumbnail.png",
       },
       {
-        title: "Data Structure ",
+        heading: "Data Structure ",
         body: `There are many real-life examples of 
       a stack. Consider an example of plates stacked 
       over one another in the canteen. The plate 
@@ -34,7 +34,7 @@ const Posts = () => {
           "https://media.geeksforgeeks.org/img-practice/banner/coa-gate-2022-thumbnail.png",
       },
       {
-        title: "Algorithm",
+        heading: "Algorithm",
         body: `The word Algorithm means “a process 
       or set of rules to be followed in calculations 
       or other problem-solving operations”. Therefore 
@@ -47,7 +47,7 @@ const Posts = () => {
           "https://media.geeksforgeeks.org/img-practice/banner/google-test-series-thumbnail.png",
       },
       {
-        title: "Computer Network",
+        heading: "Computer Network",
         body: `An interconnection of multiple devices, 
       also known as hosts, that are connected using 
       multiple paths for the purpose of sending/
