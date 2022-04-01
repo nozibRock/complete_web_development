@@ -19,7 +19,7 @@ const Navbar = () => {
       </div>
       <ul
         className={`lg:flex justify-center absolute lg:static bg-indigo-200 w-full duration-500 ease-in ${
-          open ? "top-6" : "top-[-120px]"
+          open ? "top-7" : "top-[-120px]"
         }`}
       >
         {routes.map((route) => (

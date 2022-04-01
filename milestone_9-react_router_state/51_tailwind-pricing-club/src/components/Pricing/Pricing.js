@@ -1,4 +1,5 @@
 import React from 'react';
+import PricingOption from '../PricingOption/PricingOption';
 
 const Pricing = () => {
     const pricingOptions = [
@@ -50,6 +51,11 @@ const Pricing = () => {
           numquam, animi autem architecto harum aut dolorum dolores. Quis
           commodi ipsa quibusdam!
         </p>
+        <div className="grid md:grid-cols-3 gap-3 mt-8">
+          {pricingOptions.map((option) => (
+            <PricingOption key={option.id} option={option}></PricingOption>
+          ))}
+        </div>
       </div>
     );
 };
