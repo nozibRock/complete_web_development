@@ -1,15 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import Main from './components/Main/Main';
 import Volunteers from './components/Volunteers/Volunteers';
 
 function App() {
   
   return (
-    <div className='App'>
+    <div className="App">
+      <Header></Header>
       <Routes>
+        <Route path="/main" element={<Main></Main>}></Route>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path='/volunteers' element={<Volunteers></Volunteers>}></Route>
+        <Route path="/volunteers" element={<Volunteers></Volunteers>}></Route>
       </Routes>
     </div>
   );
