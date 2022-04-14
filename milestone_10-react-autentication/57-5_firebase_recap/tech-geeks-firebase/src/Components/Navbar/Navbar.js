@@ -24,34 +24,17 @@ const Navbar = () => {
     return () => unsubscribe; */
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        console.log(user);
         setCurrentUser(user);
-        const uid = user.uid;
-        // ...
       } else {
-        // User is signed out
         setCurrentUser({});
-        // ...
       }
     });
   }, []);
 
   const handleLogout = () => {
-    /* signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        console.log(error);
-      }); */
       signOut(auth)
-        .then(() => {
-          // Sign-out successful.
-        })
+        .then(() => {})
         .catch((error) => {
-          // An error happened.
           console.log(error);
         });
   };

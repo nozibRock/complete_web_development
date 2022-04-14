@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import Blog from "../Blog/Blog";
 import "./Home.css";
 import { BlogContext } from "../../App";
@@ -11,7 +11,7 @@ const Home = () => {
     fetch("https://retro-tech-talks.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
-  }, []);
+  }, [setBlogs]);
 
   return (
     <div className='blogs-container'>

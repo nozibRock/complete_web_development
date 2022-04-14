@@ -10,11 +10,7 @@ import { auth } from "../../Firebase/Firebase.init";
 import toast from "react-hot-toast";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 
-
-
 const provider = new GoogleAuthProvider();
-
-
 
 const Signup = () => {
   const [email, setEmail] = useState({ value: "", error: "" });
@@ -27,30 +23,17 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const googleAuth = () => {
-    /* signInWithPopup(auth, provider)
+    signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        // ...
         console.log(user);
         navigate("/");
       })
       .catch((error) => {
-        // Handle Errors here.
         console.error(error);
-      }); */
-
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // The signed-in user info.
-          const user = result.user;
-          console.log(user);
-          navigate("/");
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorMessage = error.message;
-          console.log(errorMessage);
-        });
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
 
   const handleEmail = (event) => {
@@ -75,6 +58,7 @@ const Signup = () => {
       setPassword({ value: passwordInput, error: "" });
     }
   };
+
   const handleConfirmPassword = (event) => {
     const confirmationInput = event.target.value;
 
@@ -87,6 +71,7 @@ const Signup = () => {
 
   const handleSignup = (event) => {
     event.preventDefault();
+    console.log("sign up");
     if (email.value === "") {
       setEmail({ value: "", error: "Email is required" });
     }
@@ -119,74 +104,74 @@ const Signup = () => {
   };
 
   return (
-    <div className='auth-form-container '>
-      <div className='auth-form'>
+    <div className="auth-form-container ">
+      <div className="auth-form">
         <h1>Sign Up</h1>
         <form onSubmit={handleSignup}>
-          <div className='input-field'>
-            <label htmlFor='email'>Email</label>
-            <div className='input-wrapper'>
+          <div className="input-field">
+            <label htmlFor="email">Email</label>
+            <div className="input-wrapper">
               <input
                 onBlur={handleEmail}
-                type='email'
-                name='email'
-                id='email'
+                type="email"
+                name="email"
+                id="email"
               />
             </div>
             {email.error && (
-              <p className='error'>
+              <p className="error">
                 <AiOutlineExclamationCircle /> {email.error}
               </p>
             )}
           </div>
-          <div className='input-field'>
-            <label htmlFor='password'>Password</label>
-            <div className='input-wrapper'>
+          <div className="input-field">
+            <label htmlFor="password">Password</label>
+            <div className="input-wrapper">
               <input
                 onBlur={handlePassword}
-                type='password'
-                name='password'
-                id='password'
+                type="password"
+                name="password"
+                id="password"
               />
             </div>
             {password.error && (
-              <p className='error'>
+              <p className="error">
                 <AiOutlineExclamationCircle /> {password.error}
               </p>
             )}
           </div>
-          <div className='input-field'>
-            <label htmlFor='confirm-password'>Confirm Password</label>
-            <div className='input-wrapper'>
+          <div className="input-field">
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <div className="input-wrapper">
               <input
                 onBlur={handleConfirmPassword}
-                type='password'
-                name='confirmPassword'
-                id='confirm-password'
+                type="password"
+                name="confirmPassword"
+                id="confirm-password"
               />
             </div>
             {passwordConfirmation.error && (
-              <p className='error'>
+              <p className="error">
                 <AiOutlineExclamationCircle /> {passwordConfirmation.error}
               </p>
             )}
           </div>
-          <button type='submit' className='auth-form-submit'>
+          <button type="submit" className="auth-form-submit">
             Sign Up
           </button>
         </form>
-        <p className='redirect'>
+        <p className="redirect">
           Already have an account?{" "}
           <span onClick={() => navigate("/login")}>Login</span>
         </p>
-        <div className='horizontal-divider'>
-          <div className='line-left' />
+        <div className="horizontal-divider">
+          <div className="line-left" />
           <p>or</p>
-          <div className='line-right' />
+          <div className="line-right" />
         </div>
-        <div className='input-wrapper'>
-          <button className='google-auth' onClick={googleAuth}>
-            <img src={GoogleLogo} alt='' />
+        <div className="input-wrapper">
+          <button className="google-auth" onClick={googleAuth}>
+            <img src={GoogleLogo} alt="" />
             <p> Continue with Google </p>
           </button>
         </div>

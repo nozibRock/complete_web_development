@@ -20,18 +20,6 @@ const Login = () => {
   const [password, setPassword] = useState({ value: "", error: "" });
 
   const googleAuth = () => {
-    /* signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        // ...
-        console.log(user);
-        
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        console.error(error);
-      }); */
-
     signInWithPopup(auth, provider)
       .then((result) => {
         // The signed-in user info.
@@ -41,6 +29,7 @@ const Login = () => {
       })
       .catch((error) => {
         // Handle Errors here.
+        console.error(error);
         const errorMessage = error.message;
         console.log(errorMessage);
       });
@@ -73,6 +62,7 @@ const Login = () => {
       setPassword({ value: "", error: "Password is required" });
     }
 
+
     if (email.value && password.value) {
       signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
@@ -82,7 +72,7 @@ const Login = () => {
         })
         .catch((error) => {
           const errorMessage = error.message;
-
+          console.log(errorMessage);
           if (errorMessage.includes("wrong-password")) {
             toast.error("Wrong Password", { id: "error" });
           } else {
