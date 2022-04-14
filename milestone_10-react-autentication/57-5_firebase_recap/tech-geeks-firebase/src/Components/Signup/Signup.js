@@ -15,11 +15,11 @@ const provider = new GoogleAuthProvider();
 const Signup = () => {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
-  const [passwordConfirmation, setPasswordConfirmation] = useState({
-    value: "",
-    error: "",
-  });
+  const [passwordConfirmation, setPasswordConfirmation] = useState({ value: "", error: "" });
 
+  /* console.log(email);
+  console.log(password);
+  console.log(passwordConfirmation); */
   const navigate = useNavigate();
 
   const googleAuth = () => {
@@ -79,10 +79,7 @@ const Signup = () => {
       setPassword({ value: "", error: "Password is required" });
     }
     if (passwordConfirmation.value === "") {
-      setPasswordConfirmation({
-        value: "",
-        error: "Password confirmation is required",
-      });
+      setPasswordConfirmation({ value: "", error: "Password confirmation is required" });
     }
     if (email.value && password.value === passwordConfirmation.value) {
       createUserWithEmailAndPassword(auth, email.value, password.value)
@@ -90,7 +87,7 @@ const Signup = () => {
           const user = userCredential.user;
           console.log(user);
           toast.success("Account created", { id: "created" });
-          navigate("/");
+          navigate("/login");
         })
         .catch((error) => {
           const errorMessage = error.message;

@@ -19,6 +19,9 @@ const Login = () => {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
 
+  console.log(email);
+  console.log(password);
+
   const googleAuth = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -48,7 +51,16 @@ const Login = () => {
   const handlePassword = (event) => {
     const passwordInput = event.target.value;
 
-    setPassword({ value: passwordInput, error: "" });
+    if (passwordInput.length < 7) {
+      setPassword({ value: "", error: "Password too short" });
+    } else if (!/(?=.*[A-Z])/.test(passwordInput)) {
+      setPassword({
+        value: "",
+        error: "Password must contain a capital letter",
+      });
+    } else {
+      setPassword({ value: passwordInput, error: "" });
+    }
   };
 
   const handleLogin = (event) => {
