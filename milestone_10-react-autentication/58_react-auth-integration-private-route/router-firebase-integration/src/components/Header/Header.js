@@ -17,13 +17,34 @@ const Header = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="mx-auto">
               <Nav.Link
                 as={Link}
                 className={splitLocation[1] === "" ? "active" : ""}
                 to="/"
               >
                 Home
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                className={splitLocation[1] === "orders" ? "active" : ""}
+                to="/orders"
+              >
+                Orders
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                className={splitLocation[1] === "products" ? "active" : ""}
+                to="/products"
+              >
+                Products
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                className={splitLocation[1] === "reviews" ? "active" : ""}
+                to="/reviews"
+              >
+                Reviews
               </Nav.Link>
             </Nav>
             <Nav>
