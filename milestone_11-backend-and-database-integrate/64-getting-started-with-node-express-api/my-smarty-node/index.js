@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 
 
 app.use(cors());
+app.use(express.json())
 
 
 app.get("/", (req, res) => {
@@ -53,6 +54,11 @@ app.get("/user/:id", (req, res) => {
 app.get("/users", (req, res) => {
   res.send(users);
 });
+
+app.post('/user', (req, res) => {
+    console.log('request',  req.body);
+    res.send('post method success')
+})
 
 app.get("/fruits", (req, res) => {
   res.send(["mango", "apple", "oranges"]);
