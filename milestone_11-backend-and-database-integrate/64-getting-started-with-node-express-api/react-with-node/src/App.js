@@ -24,15 +24,13 @@ function App() {
       },
       body: JSON.stringify(user),
     })
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         console.log("Success:", data);
+        const newUser = [...user, data];
+        setUsers(newUser);
+        console.log(data);
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-
-    // console.log(name, email);
   };
 
   return (
