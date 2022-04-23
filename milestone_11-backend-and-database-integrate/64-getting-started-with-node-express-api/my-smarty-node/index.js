@@ -50,8 +50,14 @@ app.get("/user/:id", (req, res) => {
 }); */
 
 app.get("/users", (req, res) => {
-  console.log('query', req.query);
-  res.send(users);
+  if (req.query.name) {
+    const search = req.query.name;
+    const matched = users.filter(user => user.name.toLocaleLowerCase().includes(search))
+    res.send(matched)
+  } else {
+    res.send(users);
+  }
+  console.log("query", req.query);
 });
 
 app.post("/user", (req, res) => {
