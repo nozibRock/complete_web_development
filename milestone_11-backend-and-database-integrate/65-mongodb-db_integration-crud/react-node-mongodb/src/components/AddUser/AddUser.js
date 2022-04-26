@@ -5,7 +5,7 @@ const AddUser = () => {
   const handleAddUser = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
-    const email = event.target.name.value;
+    const email = event.target.email.value;
 
     const user = { name, email };
 
@@ -24,10 +24,10 @@ const AddUser = () => {
         event.target.reset();
       });
   };
-  return (
+  return(
     <div>
       <div className="w-50 mx-auto my-5">
-      <h2>Please add a new User</h2>
+        <h2>Please add a new User</h2>
 
         <form onSubmit={handleAddUser}>
           <FloatingLabel
@@ -42,6 +42,7 @@ const AddUser = () => {
               required
             />
           </FloatingLabel>
+
           <FloatingLabel
             controlId="floatingInput"
             label="Email address"
