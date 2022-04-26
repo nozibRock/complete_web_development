@@ -25,17 +25,16 @@ async function run() {
     await client.connect();
     const userCollection = client.db("foodExpress").collection("user");
 
-    app.get('/user', async(req, res) => {
+    app.get("/user", async(req, res) => {
       // query for movies that have a runtime less than 15 minutes
       const query = {};
       const cursor = userCollection.find(query);
-
-      // replace console.dir with your callback to access individual elements
-      await cursor.forEach(console.dir);
-    })
+      const users = await cursor.toArray();
+      res.send(users);
+    });
 
     // POST User : add a new user
-    app.post("/user", async(req, res) => {
+    app.post("/user", async (req, res) => {
       const newUser = req.body;
       console.log("adding new user", newUser);
       const result = await userCollection.insertOne(newUser);
