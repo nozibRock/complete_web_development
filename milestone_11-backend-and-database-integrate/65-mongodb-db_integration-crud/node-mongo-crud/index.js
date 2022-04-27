@@ -33,7 +33,7 @@ async function run() {
       const users = await cursor.toArray();
       res.send(users);
     });
-    
+
     app.get("/user/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
@@ -46,6 +46,26 @@ async function run() {
       const newUser = req.body;
       console.log("adding new user", newUser);
       const result = await userCollection.insertOne(newUser);
+      res.send(result);
+    });
+
+    // update user
+    app.put("/user/:id", async (req, res) => {
+      const id = req.params.id;
+      const updatedUser = req.body;
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          name: updatedUser.name,
+          email: updatedUser.email,
+        },
+      };
+      const result = await userCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
       res.send(result);
     });
 
