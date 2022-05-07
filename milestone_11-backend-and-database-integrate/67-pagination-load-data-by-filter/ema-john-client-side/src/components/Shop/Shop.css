@@ -8,6 +8,11 @@
     gap: 45px;
     margin: 100px 50px;
 }
+.pagination button {
+    margin-right: 10px;
+    background-color: antiquewhite;
+    border: 1px solid lightblue;
+}
 .cart-container{
     background-color: rgba(255, 153, 0, 0.3);
 }
