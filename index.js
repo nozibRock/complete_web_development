@@ -33,17 +33,25 @@ async function run() {
     const productCollection = client.db("emaJohn").collection("product");
 
     app.get("/product", async (req, res) => {
+      console.log("query", req.query);
+      const page = parseInt(req.query.page);
+      const count = parseInt(req.query.size);
       const query = {};
       const cursor = productCollection.find(query);
-      const products = await cursor.limit(10).toArray();
+      let products;
+      if (page || count) {
+        products = await cursor.skip(page*count).limit(count).toArray();
+      } else {
+        products = await cursor.toArray();
+      }
       res.send(products);
     });
-    
+
     app.get("/product-count", async (req, res) => {
       const query = {};
       const cursor = productCollection.find(query);
-      const count = await cursor.count();
-      res.send({count});
+      const count = await productCollection.estimatedDocumentCount();
+      res.send({ count });
     });
   } finally {
     // Ensures that the client will close when you finish/error
