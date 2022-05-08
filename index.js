@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+// const ObjectId  = require("mongodb").ObjectID;
 require("dotenv").config();
 
 // middleware
@@ -10,26 +11,17 @@ app.use(cors());
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ntghj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-// console.log(uri);
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
 });
-/* client.connect((err) => {
-  const collection = client.db("emaJohn").collection("product");
-  // perform actions on the collection object
-  console.log('mongo is connected');
-  client.close();
-});
- */
+
 async function run() {
   try {
     // Connect the client to the server
     await client.connect();
     // Establish and verify connection
-    // await client.db("admin").command({ ping: 1 });
-    // console.log("Connected successfully to server");
     const productCollection = client.db("emaJohn").collection("product");
 
     app.get("/product", async (req, res) => {
@@ -40,23 +32,32 @@ async function run() {
       const cursor = productCollection.find(query);
       let products;
       if (page || count) {
-        products = await cursor.skip(page*count).limit(count).toArray();
+        products = await cursor
+          .skip(page * count)
+          .limit(count)
+          .toArray();
       } else {
         products = await cursor.toArray();
       }
       res.send(products);
     });
 
-    app.get("/product-count", async (req, res) => {
-      const query = {};
-      const cursor = productCollection.find(query);
+    app.get("/productCount", async (req, res) => {
       const count = await productCollection.estimatedDocumentCount();
       res.send({ count });
     });
-  } finally {
-    // Ensures that the client will close when you finish/error
-    // await client.close();
-  }
+
+    // use post to get products by id
+    app.post("/productByKeys", async (req, res) => {
+      const keys = req.body;
+      const ids = keys.map((id) => ObjectId(id));
+      const query = { _id: { $in: ids } };
+      const cursor = productCollection.find(query);
+      const products = await cursor.toArray();
+      console.log(keys);
+      res.send(products);
+    });
+  } finally {}
 }
 run().catch(console.dir);
 
