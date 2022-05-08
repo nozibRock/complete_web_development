@@ -30,7 +30,6 @@ const Shop = () => {
   }, []);
 
   const handleAddToCart = (selectedProduct) => {
-    console.log(selectedProduct);
     let newCart = [];
     const exists = cart.find((product) => product._id === selectedProduct._id);
     if (!exists) {
@@ -49,7 +48,7 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <div className="products-container">
-        {products.map(product => (
+        {products.map((product) => (
           <Product
             key={product._id}
             product={product}
@@ -63,14 +62,15 @@ const Shop = () => {
               className={page === number ? "selected" : ""}
               onClick={() => setPage(number)}
             >
-              {" "}
-              {number + 1}{" "}
+              {number + 1}
             </button>
           ))}
 
           <select onChange={(e) => setSize(e.target.value)}>
             <option value="5">5</option>
-            <option selected value="10">10</option>
+            <option value="10" selected>
+              10
+            </option>
             <option value="15">15</option>
             <option value="20">20</option>
           </select>
