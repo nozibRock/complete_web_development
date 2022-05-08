@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useProducts from "../../hooks/useProducts";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import { addToDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import useCart from "../../hooks/useCart";
 
 const Shop = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useCart();
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const Shop = () => {
   }, [page, size]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/product-count")
+    fetch("http://localhost:5000/productCount")
       .then((res) => res.json())
       .then((data) => {
         const count = data.count;
@@ -29,20 +28,6 @@ const Shop = () => {
         setPageCount(pages);
       });
   }, []);
-
-  useEffect(() => {
-    const storedCart = getStoredCart();
-    const savedCart = [];
-    for (const id in storedCart) {
-      const addedProduct = products.find((product) => product._id === id);
-      if (addedProduct) {
-        const quantity = storedCart[id];
-        addedProduct.quantity = quantity;
-        savedCart.push(addedProduct);
-      }
-    }
-    setCart(savedCart);
-  }, [products]);
 
   const handleAddToCart = (selectedProduct) => {
     console.log(selectedProduct);
@@ -52,9 +37,7 @@ const Shop = () => {
       selectedProduct.quantity = 1;
       newCart = [...cart, selectedProduct];
     } else {
-      const rest = cart.filter(
-        (product) => product._id !== selectedProduct._id
-      );
+      const rest = cart.filter(product => product._id !== selectedProduct._id);
       exists.quantity = exists.quantity + 1;
       newCart = [...rest, exists];
     }
@@ -66,7 +49,7 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <div className="products-container">
-        {products.map((product) => (
+        {products.map(product => (
           <Product
             key={product._id}
             product={product}
