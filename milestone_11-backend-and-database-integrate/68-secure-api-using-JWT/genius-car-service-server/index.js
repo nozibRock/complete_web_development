@@ -115,6 +115,9 @@ run().catch(console.dir);
 app.get("/", (req, res) => {
   res.send("Running please hoiye jao Server");
 });
+app.get("/hero", (req, res) => {
+  res.send("hero meets heroku Server");
+});
 app.listen(port, () => {
   console.log("Listening Genius Server port", port);
 });
