@@ -1,6 +1,6 @@
 import React from "react";
 
-const InfoCard = ({ img, cardTitle, cardBody, bgClass }) => {
+const InfoCard = ({ img, cardTitle, cardText, bgClass }) => {
   return (
     <div
       className={`card lg:card-side bg-base-100 shadow-xl hover:scale-105 transition-all ${bgClass}`}
@@ -10,7 +10,7 @@ const InfoCard = ({ img, cardTitle, cardBody, bgClass }) => {
       </figure>
       <div className="card-body text-white">
         <h2 className="card-title">{cardTitle}</h2>
-        <p>{cardBody}</p>
+        <p>{cardText}</p>
       </div>
     </div>
   );
