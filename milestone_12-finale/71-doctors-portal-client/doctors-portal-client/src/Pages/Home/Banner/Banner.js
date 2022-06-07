@@ -1,11 +1,13 @@
 import React from "react";
-import chair from '../../../assets/images/chair.png';
+import chair from "../../../assets/images/chair.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import PrimaryButton from "../../Shared/PrimaryButton/PrimaryButton";
 
 const Banner = () => {
   return (
     <div className="hero min-h-[70vh]">
+      
       <div className="hero-content flex-col lg:flex-row-reverse">
         <LazyLoadImage
           className="max-w-sm rounded-lg shadow-2xl"
@@ -22,7 +24,7 @@ const Banner = () => {
             surgical lamp and super comfort upholstery cushion with USA imported
             leather.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <PrimaryButton className="btn btn-primary">Get Started</PrimaryButton>
         </div>
       </div>
     </div>
