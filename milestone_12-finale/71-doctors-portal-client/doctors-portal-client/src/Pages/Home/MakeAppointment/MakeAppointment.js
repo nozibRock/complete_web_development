@@ -15,7 +15,7 @@ const MakeAppointment = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-      className="flex justify-center items-center px-6 py-6 lg:py-0 "
+      className="px-10 py-14"
     >
       <div className="flex-1 hidden lg:block">
         <LazyLoadImage
