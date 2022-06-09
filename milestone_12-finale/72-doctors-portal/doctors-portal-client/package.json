@@ -5,7 +5,9 @@
   "dependencies": {
     "cra-template": "1.2.0",
     "daisyui": "^2.15.2",
+    "date-fns": "^2.28.0",
     "react": "^18.1.0",
+    "react-day-picker": "^8.0.6",
     "react-dom": "^18.1.0",
     "react-lazy-load-image-component": "^1.5.4",
     "react-read-more-read-less": "^1.0.7",
