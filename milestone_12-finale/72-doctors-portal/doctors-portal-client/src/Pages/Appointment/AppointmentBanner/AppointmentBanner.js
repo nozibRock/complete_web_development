@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import bg from "../../../assets/images/bg.png";
 import chair from "../../../assets/images/chair.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -7,8 +7,7 @@ import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
-const AppointmentBanner = () => {
-  const [selected, setSelected] = useState(new Date());
+const AppointmentBanner = ({ selected, setSelected }) => {
 
   let footer = <p>Please pick a day.</p>;
   if (selected) {
