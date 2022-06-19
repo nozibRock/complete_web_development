@@ -15,8 +15,7 @@ const MakeAppointment = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-      className="px-10 py-14"
-    >
+      className="flex justify-center items-center lg:px-10 md:px-6 lg:py-0 md:py-14 sm:py-12 ">
       <div className="flex-1 hidden lg:block">
         <LazyLoadImage
           className="-mt-24"
@@ -25,7 +24,7 @@ const MakeAppointment = () => {
           src={doctor}
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 px-5">
         <h3 className="text-xl text-primary font-bold">Appointment</h3>
         <h2 className="text-3xl text-white">Make an Appointment Today</h2>
         <p className="text-white text-justify my-4">
