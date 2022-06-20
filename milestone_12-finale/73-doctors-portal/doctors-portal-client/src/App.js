@@ -8,6 +8,7 @@ import Loading from "./Pages/Shared/Loading/Loading";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Appointment from "./Pages/Appointment/Appointment";
+import SignUp from "./Pages/Login/SignUp/SignUp";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/appointment" element={<Appointment />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
           <Footer />
         </div>
