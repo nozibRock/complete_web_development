@@ -1,21 +1,37 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
+  let signInError;
+  if (error || gError) {
+    signInError = (
+      <p className="text-red-500">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
+
   const onSubmit = (data) => {
-    console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
-  if (user) {
-    console.log(user);
+  if (gUser) {
+    console.log(gUser);
   }
   return (
     <div className="h-screen flex justify-center items-center">
@@ -55,7 +71,6 @@ const Login = () => {
                 )}
               </label>
             </div>
-
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Password</span>
@@ -89,14 +104,25 @@ const Login = () => {
               </label>
             </div>
 
+            {signInError}
+            {/* login button */}
             <input
               className="btn w-full max-w-xs text-white bg-accent hover:bg-accent"
               type="submit"
               value="Login"
             />
           </form>
+
           <div className="divider">OR</div>
 
+          { loading || gLoading ? (
+            <>
+              <Loading></Loading> <br />{" "}
+              <div className="divider text-lg font-semibold">Loading...</div>
+            </>
+          ) : (
+            ""
+          )}
           <button
             onClick={() => signInWithGoogle()}
             className="btn btn-outline uppercase"
