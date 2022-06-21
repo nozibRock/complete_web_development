@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -25,6 +25,12 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
+  useEffect(() => {
+    if (user || gUser) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from, gUser]);
+
   if (error || gError) {
     signInError = (
       <p className="text-red-500">
@@ -35,11 +41,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
-    
   };
-  if (user || gUser) {
-    navigate(from, { replace: true });
-  }
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -119,11 +121,18 @@ const Login = () => {
               value="Login"
             />
           </form>
-          <p><small>New to Doctors Portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
+          <p>
+            <small>
+              New to Doctors Portal{" "}
+              <Link className="text-primary" to="/signup">
+                Create New Account
+              </Link>
+            </small>
+          </p>
 
           <div className="divider">OR</div>
 
-          { loading || gLoading ? (
+          {loading || gLoading ? (
             <>
               <Loading></Loading> <br />{" "}
               <div className="divider text-lg font-semibold">Loading...</div>
