@@ -2,9 +2,10 @@ import React from "react";
 import {
     useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 
@@ -12,6 +13,9 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,7 +24,7 @@ const SignUp = () => {
   } = useForm();
 
   let signInError;
-  if (error || gError) {
+  if (error || gError || updateError) {
     signInError = (
       <p className="text-red-500">
         <small>{error?.message || gError?.message}</small>
@@ -28,8 +32,12 @@ const SignUp = () => {
     );
   }
 
-  const onSubmit = (data) => {
-    createUserWithEmailAndPassword(data.email, data.password);
+  const onSubmit = async (data) => {
+    console.log(data);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    console.log('update done!');
+    navigate('/login')
   };
   if (user || gUser) {
     console.log(user || gUser);
@@ -147,7 +155,7 @@ const SignUp = () => {
 
           <div className="divider">OR</div>
 
-          {loading || gLoading ? (
+          {loading || gLoading || updating ? (
             <>
               <Loading></Loading> <br />{" "}
               <div className="divider text-lg font-semibold">Loading...</div>
