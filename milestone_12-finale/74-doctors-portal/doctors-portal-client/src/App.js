@@ -7,9 +7,11 @@ import Login from "./Pages/Login/Login";
 import Loading from "./Pages/Shared/Loading/Loading";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import Footer from "./Pages/Shared/Footer/Footer";
-import Appointment from "./Pages/Appointment/Appointment"; 
+import Appointment from "./Pages/Appointment/Appointment";
 import SignUp from "./Pages/Login/SignUp/SignUp";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           <Footer />
         </div>
       </Suspense>
+      <ToastContainer />
     </div>
   );
 }
