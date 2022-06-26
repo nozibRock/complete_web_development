@@ -15,10 +15,13 @@ const Dashboard = () => {
         <label htmlFor="dash-sidebar" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           <li>
-            <Link to="/dashboard">sidebar Item 1</Link>
+            <Link to="/dashboard">My Appointments</Link>
           </li>
           <li>
-            <Link to="/dashboard/review">sidebar Item 2</Link>
+            <Link to="/dashboard/review">My Reviews</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/history">My history</Link>
           </li>
         </ul>
       </div>

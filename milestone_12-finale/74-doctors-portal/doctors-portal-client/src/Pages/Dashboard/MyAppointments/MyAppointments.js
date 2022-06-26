@@ -23,19 +23,23 @@ const MyAppointments = () => {
         <table class="table table-compact w-full">
           <thead>
             <tr>
+                <th></th>
               <th>Name</th>
               <th>Treatment</th>
-              <th>Date</th>
+
               <th>Time</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
-            {appointments.map((a) => (
+            {appointments.map((a, index) => (
               <tr>
+                  <td>{index + 1}</td>
                 <td>{a.patientName}</td>
                 <td>{a.treatment}</td>
-                <td>{a.date}</td>
+
                 <td>{a.slot}</td>
+                <td>{a.date}</td>
               </tr>
             ))}
           </tbody>
