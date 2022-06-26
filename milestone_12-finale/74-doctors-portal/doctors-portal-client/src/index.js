@@ -5,6 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { loadAnimation } from "lottie-web";
+import { defineLordIconElement } from "lord-icon-element";
+
+// register lottie and define custom element
+defineLordIconElement(loadAnimation);
 
 // Create a client
 const queryClient = new QueryClient()

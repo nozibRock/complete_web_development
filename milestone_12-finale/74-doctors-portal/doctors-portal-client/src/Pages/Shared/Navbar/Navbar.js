@@ -14,7 +14,11 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      {user && <li><Link to="/appointment">Appointment</Link></li>}
+      {user && (
+        <li>
+          <Link to="/appointment">Appointment</Link>
+        </li>
+      )}
       <li>
         <Link to="/review">Review</Link>
       </li>
@@ -24,7 +28,11 @@ const Navbar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
+      {user && (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
       <li>
         {user ? (
           <button onClick={logout}>Sign Out</button>
@@ -68,6 +76,11 @@ const Navbar = () => {
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
+      </div>
+      <div className="navbar-end">
+        <label htmlFor="dash-sidebar" tabIndex="0" className="btn btn-ghost lg:hidden" >
+          <lord-icon src="https://cdn.lordicon.com/jkgftzlk.json" trigger="click" delay="5" style={{width:'24px', height:'24px'}}></lord-icon>
+        </label>
       </div>
     </div>
   );
