@@ -21,15 +21,9 @@ async function run() {
   try {
     await client.connect();
 
-    const servicesCollection = client
-      .db("doctors_portal")
-      .collection("services");
-    const bookingCollection = client
-      .db("doctors_portal")
-      .collection("bookings");
-    const userCollection = client
-      .db("doctors_portal")
-      .collection("users");
+    const servicesCollection = client.db("doctors_portal").collection("services");
+    const bookingCollection = client.db("doctors_portal").collection("bookings");
+    const userCollection = client.db("doctors_portal").collection("users");
 
     app.get("/service", async (req, res) => {
       const query = {};
@@ -38,14 +32,11 @@ async function run() {
       res.send(services);
     });
 
-    app.put('/user/:email', aync (req, res) => {
+    app.put('/user/:email', async (req, res) => {
       const email = req.params.email;
-      const usser = req.body;
-      // create a filter for a movie to update
+      const user = req.body;
       const filter = { email: email };
-      // this option instructs the method to create a document if no documents match the filter
       const options = { upsert: true };
-      // create a document that sets the plot of the movie
       const updateDoc = {
         $set: user,
       };
@@ -56,7 +47,7 @@ async function run() {
     // Warning: This is not the proper way to query multiple collection.
     // After learning more about mongodb. use aggregate, lookup, pipeline, match, group
     app.get("/available", async (req, res) => {
-      const date = req.query.date; /* || "Friday, June 24th, 2022" */
+      const date = req.query.date;
 
       // step 1: get all services
       const services = await servicesCollection.find().toArray();
@@ -102,10 +93,8 @@ async function run() {
     app.post("/booking", async (req, res) => {
       const booking = req.body;
       const query = {
-        treatmentId: booking.treatmentId,
         treatment: booking.treatment,
         date: booking.date,
-        slot: booking.slot,
         patient: booking.patient,
       };
       const exist = await bookingCollection.findOne(query);
