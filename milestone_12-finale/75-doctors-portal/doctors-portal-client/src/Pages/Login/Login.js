@@ -32,7 +32,7 @@ const Login = () => {
     if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, from, navigate]);
+  }, [token, from, navigate]);
 
   if (error || gError) {
     signInError = (

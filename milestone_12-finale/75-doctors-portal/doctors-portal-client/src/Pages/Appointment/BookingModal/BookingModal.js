@@ -13,7 +13,6 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     event.preventDefault();
     const slot = event.target.slot.value;
     const phone = event.target.phone.value;
-    console.log(_id, name, slot);
 
     const booking = {
       treatmentId: _id,

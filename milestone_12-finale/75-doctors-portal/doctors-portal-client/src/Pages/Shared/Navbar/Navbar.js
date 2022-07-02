@@ -8,6 +8,7 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
   };
   const menuItems = (
     <>
@@ -33,9 +34,9 @@ const Navbar = () => {
       )}
       <li>
         {user ? (
-          <button onClick={logout}>Sign Out</button>
+          <button onClick={logout}>Log Out</button>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login">Log In</Link>
         )}
       </li>
     </>
